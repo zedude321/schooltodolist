@@ -29,7 +29,7 @@ module.exports = {
         "white-2": "#EBEBEB",
         "white-3": "#DEDEDE",
         "white-4": "#D1D1D1",
-        "white/40": "#F7F7F799",
+        "white/60": "#F7F7F799",
         "white/40": "#F7F7F766",
         "white/20": "#F7F7F733",
         "primary-1": "#5030E5",
