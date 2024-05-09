@@ -1,4 +1,4 @@
-import InputLogin from "./components/input";
+import InputLogin from "@components";
 import { GoDotFill } from "react-icons/go";
 
 const SignUp = () => {
