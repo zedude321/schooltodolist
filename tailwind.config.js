@@ -23,7 +23,7 @@ module.exports = {
         "white-2": "#EBEBEB",
         "white-3": "#DEDEDE",
         "white-4": "#D1D1D1",
-        "purple": "#8338EC",
+        purple: "#8338EC",
         "purple-d": "#973BF7",
         "purple-l": "#CB9DFB",
         "blue-l": "#76A5EA",
