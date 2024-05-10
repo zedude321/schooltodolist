@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 
-export const ColorButton = ({ borderColor, secondBorder, bg }) => {
-  const [selected, setSelected] = useState(false);
-
+export const ColorButton = ({ bg, selected, setSelected, id }) => {
   const setHandle = () => {
-    setSelected(!selected);
+    setSelected(id);
   };
 
   return (
     <>
       <button
+        style={{ background: bg }}
         className={`w-6 h-6 border rounded-full ${
-          selected ? "border-white-1" : "border-none"
-        } bg-${bg} `}
+          selected == id ? "border-white-1" : "border-none"
+        }`}
         onClick={setHandle}
       ></button>
     </>
