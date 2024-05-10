@@ -1,3 +1,8 @@
+import Project from "./project";
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Project />
+    </div>
+  );
 }
