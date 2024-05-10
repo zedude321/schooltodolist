@@ -1,34 +1,30 @@
-import data from "../utils/members.json"
-import appereance from "../utils/appereance.json"
-import { Poppins, Inter } from "next/font/google";
-
+import { InputLogin } from "./input";
 
 export default function CreateTask() {
   return (
-    <div className="w-[702px] h-[491px] flex justify-center items-center border-dark/60 border-[2px] rounded-3xl">
-        <div className="w-[606px] h-[395px] gap-y-[32px] flex flex-col items-center justify-center">
-            <span className="text-dark-1 text-36">Create Task</span>
-            <div className="w-full flex flex-col ">
-                <div className="h-full w-full flex">
-                    <span className="text-16 text-dark/60">Task name</span>
-                </div>
-                <input className="w-full h-full border rounded-xl flex p-3"></input>
-            </div>
-            <div className="w-full flex flex-col ">
-                <div className="h-full w-full flex">
-                    <span className="text-16 text-dark/60">Task's end date</span>
-                </div>
-                <input className="w-full h-full border rounded-xl flex p-3"></input>
-            </div>
-            <div className="h-full w-full flex flex-col gap-y-[8px]">
-                <button className="w-full h-[56px] rounded-3xl bg-dark-1 flex flex-col items-center justify-center">
-                    <button className="font-16 text-white-1 flex items-center justify-center">Create Teams</button>
-                </button>
-                <div className="h-[28px] w-full flex justify-center items-center">
-                    <span className="p-2 text-14">Already have an account? Log in</span>
-                </div>
-            </div>
+    <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm">
+      <div className="w-[50%] h-[70%] border rounded-3xl flex justify-center gap-10 items-center flex-col">
+        <h1 className="text-2xl text-white-1 font-bold">Task үүсгэх</h1>
+        <div className="w-[100%] h-auto flex justify-center gap-4 items-center flex-col">
+          <InputLogin
+            label="Task нэр"
+            placeholder="Graphic Design"
+            isHide="true"
+          />
+          <InputLogin
+            type="password"
+            label="Task-ийн дуусах хугацаа"
+            placeholder="9/5/2024"
+            isHide="false"
+          />
         </div>
+
+        <button className="w-[80%]">
+          <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
+            Task үүсгэх
+          </div>
+        </button>
+      </div>
     </div>
   );
 }
