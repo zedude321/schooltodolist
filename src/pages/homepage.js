@@ -1,5 +1,4 @@
 "use client";
-import { FiPlus } from "react-icons/fi";
 import { useRouter } from 'next/router';
 
 export default function Home() {

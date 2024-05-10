@@ -9,8 +9,8 @@ export const SearchInput = ({
     <div
       className={`bg-dark-2 rounded-md flex items-center gap-3 w-input`}
     >
-      <label for="search-input">
-        <FiSearch className="h-6 w-6 text-white-1/60 my-2.5 ml-5" />
+      <label htmlFor="search-input">
+        <FiSearch className="h-5 w-5 text-white-1/60 my-2.5 ml-5" />
       </label>
       <input
         onChange={(e) => setValue(e.target.value)}

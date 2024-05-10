@@ -16,5 +16,22 @@
 
 body {
   background-color: #121212;
+}
 
+button, a {
+  cursor: pointer;
+  transition: all;
+  transition-duration: 200ms;
+}
+
+button:hover, a:hover {
+  filter: brightness(80%);
+}
+
+button:active, a:active {
+  filter: opacity(30%);
+}
+
+button:disabled, a:disabled {
+  filter: none !important;
 }
