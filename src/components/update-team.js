@@ -1,6 +1,6 @@
 import { InputLogin } from "./input";
 import { Members } from "./members";
-
+import { ColorButton } from "./color-button";
 export const UpdateTeam = () => {
   return (
     <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm p-4">
@@ -14,16 +14,51 @@ export const UpdateTeam = () => {
             </div>
             <div className="w-full h-[40px] flex justify-between items-center text-white-1 text-md">
               <div className="flex justify-center items-center gap-2">
-                {" "}
-                <button className="w-6 h-6 rounded-full bg-black"></button>
-                <button className="w-6 h-6 rounded-full bg-purple-d"></button>
-                <button className="w-6 h-6 rounded-full bg-purple-l"></button>
-                <button className="w-6 h-6 rounded-full bg-blue-d"></button>
-                <button className="w-6 h-6 rounded-full bg-blue-l"></button>
-                <button className="w-6 h-6 rounded-full bg-yellow-d"></button>
-                <button className="w-6 h-6 rounded-full bg-yellow-l"></button>
-                <button className="w-6 h-6 rounded-full bg-green-d"></button>
-                <button className="w-6 h-6 rounded-full bg-green-l"></button>
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="black"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="purple-d"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="purple-l"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="blue-d"
+                />{" "}
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="blue-l"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="yellow-d"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="yellow-l"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="green-d"
+                />
+                <ColorButton
+                  borderColor="black"
+                  secondBorder="white"
+                  bg="green-l"
+                />
               </div>
               <div className="flex justify-center items-center gap-2">
                 <p className="text-xs text-white-1/60">Өнгөө сонгох</p>
@@ -41,12 +76,9 @@ export const UpdateTeam = () => {
             isHide="false"
           />
           <Members />
-
           <Members />
-
           <Members />
         </div>
-
         <button className="w-[80%] h-[60px] flex justify-center items-center">
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
             Хадгалах
