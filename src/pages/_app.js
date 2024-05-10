@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/auth/auth-provider";
 import { Header } from "@/components";
 import Sidebar from "@/components/sidebar";
 import "@/styles/globals.css";
@@ -20,22 +21,24 @@ export default function App({ Component, pageProps }) {
   const path = usePathname();
 
   return (
-    <main
-      className={`${
-        inter.variable + " " + roboto.variable
-      } max-w-screen h-screen flex min-w-screen`}
-    >
-      {!(path == "/login" || path == "/sign-up") ? (
-        <>
-          <Sidebar />
-          <div className="flex flex-col w-full">
-            <Header />
-            <Component {...pageProps} />
-          </div>
-        </>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </main>
+    <AuthProvider>
+      <main
+        className={`${
+          inter.variable + " " + roboto.variable
+        } max-w-screen h-screen flex min-w-screen`}
+      >
+        {!(path == "/login" || path == "/sign-up") ? (
+          <>
+            <Sidebar />
+            <div className="flex flex-col w-full">
+              <Header />
+              <Component {...pageProps} />
+            </div>
+          </>
+        ) : (
+          <Component {...pageProps} />
+        )}
+      </main>
+    </AuthProvider>
   );
 }

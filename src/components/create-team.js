@@ -3,16 +3,32 @@ import { ColorButton } from "./color-button";
 import { Members } from "./members";
 import appereance from "../utils/appereance.json";
 import members from "../utils/members.json";
-import { useState } from "react";
-export function CreateTeam() {
+import { useEffect, useRef, useState } from "react";
+export function CreateTeam({ setVisible }) {
   const [selected, setSelected] = useState(-1);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleOutSideClick = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setVisible(false);
+      }
+    };
+    document.addEventListener("click", handleOutSideClick, true);
+    return () => {
+      document.removeEventListener("click", handleOutSideClick, true);
+    };
+  }, [ref]);
 
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm p-4">
-      <div className="w-[50%] h-[90%] bg-dark-1 border rounded-3xl flex justify-center items-center flex-col">
+    <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm p-4 z-0">
+      <div
+        ref={ref}
+        className="w-[50%] h-[90%] z-100 bg-dark-1 border rounded-3xl flex justify-center items-center flex-col"
+      >
         <h1 className="text-2xl text-white-1 font-bold">Баг үүсгэх</h1>
         <div className="w-[100%] h-auto flex justify-around gap-8 items-center flex-col">
-          <InputLogin label="Багын нэр" placeholder="11A" isHide="true" />
+          <InputLogin label="Багын нэр" isHide="true" />
           <div className="w-[80%] h-[56px] flex justify-between items-start flex-col font-roboto">
             <div className="h-[16px] w-full flex justify-between items-center">
               <p className="text-sm text-white-1/60 h-full">Өнгөө сонгох</p>
@@ -50,7 +66,10 @@ export function CreateTeam() {
           </div>
         </div>
 
-        <button className="w-[80%] h-[60px] flex justify-center items-center">
+        <button
+          onClick={() => setVisible(false)}
+          className="w-[80%] h-[60px] flex justify-center items-center"
+        >
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
             Багаа үүсгэх
           </div>
