@@ -1,7 +1,12 @@
 import { InputLogin } from "./input";
+import { ColorButton } from "./color-button";
 import { Members } from "./members";
+import appereance from "../utils/appereance.json";
+import members from "../utils/members.json";
+import { useState } from "react";
+export function UpdateTeam() {
+  const [selected, setSelected] = useState(-1);
 
-export const UpdateTeam = () => {
   return (
     <div className="w-screen h-screen fixed top-0 left-0 flex justify-center items-center backdrop-blur-sm p-4">
       <div className="w-[50%] h-[90%] bg-dark-1 border rounded-3xl flex justify-center items-center flex-col">
@@ -12,25 +17,19 @@ export const UpdateTeam = () => {
             <div className="h-[16px] w-full flex justify-between items-center">
               <p className="text-sm text-white-1/60 h-full">Өнгөө сонгох</p>
             </div>
-            <div className="w-full h-[40px] flex justify-between items-center text-white-1 text-md">
-              <div className="flex justify-center items-center gap-2">
-                {" "}
-                <button className="w-6 h-6 rounded-full bg-black"></button>
-                <button className="w-6 h-6 rounded-full bg-purple-d"></button>
-                <button className="w-6 h-6 rounded-full bg-purple-l"></button>
-                <button className="w-6 h-6 rounded-full bg-blue-d"></button>
-                <button className="w-6 h-6 rounded-full bg-blue-l"></button>
-                <button className="w-6 h-6 rounded-full bg-yellow-d"></button>
-                <button className="w-6 h-6 rounded-full bg-yellow-l"></button>
-                <button className="w-6 h-6 rounded-full bg-green-d"></button>
-                <button className="w-6 h-6 rounded-full bg-green-l"></button>
-              </div>
-              <div className="flex justify-center items-center gap-2">
-                <p className="text-xs text-white-1/60">Өнгөө сонгох</p>
-                <input
-                  className="w-20 h-6 bg-dark-1 outline-0 border rounded p-2 text-sm text-white-1 placeholder:text-white-1/60 placeholder:text-xs"
-                  placeholder="#f5f5f5"
-                ></input>
+            <div className="w-full h-[40px] flex justify-center items-center text-white-1 text-md">
+              <div className="w-full flex justify-between items-center">
+                {appereance.map((el, i) => {
+                  return (
+                    <ColorButton
+                      selected={selected}
+                      setSelected={setSelected}
+                      id={i}
+                      key={i}
+                      bg={el.color}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -40,19 +39,23 @@ export const UpdateTeam = () => {
             placeholder="Имэйлээр багын гишүүдээ нэмэх"
             isHide="false"
           />
-          <Members />
-
-          <Members />
-
-          <Members />
+          <div className="w-full h-64 flex justify-between gap-[24px] items-center flex-col overflow-y-scroll">
+            {members.map((el) => {
+              return (
+                <>
+                  <Members img={el.img} name={el.name} mail={el.mail} />
+                </>
+              );
+            })}
+          </div>
         </div>
 
         <button className="w-[80%] h-[60px] flex justify-center items-center">
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
-            Хадгалах
+            Багаа үүсгэх
           </div>
         </button>
       </div>
     </div>
   );
-};
+}
