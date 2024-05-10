@@ -13,20 +13,22 @@ const Login = () => {
             isHide="true"
           />
           <InputLogin
+            type="password"
             label="Нууц Үг"
             placeholder="Amjuulay123456"
             isHide="false"
           />
         </div>
 
-        <div className="w-[80%]">
-          <div className="w-full h-[40px] bg-white text-dark text-md flex justify-center items-center rounded-3xl">
+        <button className="w-[80%]">
+          <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
             Нэвтрэх
           </div>
-        </div>
-        <div className="w-[80%] flex justify-center items-center ">
+        </button>
+        <div className="w-[80%] flex justify-center items-center">
           <div className="text-white-1/60 text-xs flex justify-center gap-1">
-            Та Бүртгэлгүй бол? <div className="underline"> Бүртгүүлэх</div>
+            Та Бүртгэлгүй бол?{" "}
+            <a href="/sign-up" className="underline cursor-pointer"> Бүртгүүлэх</a>
           </div>
         </div>
       </div>

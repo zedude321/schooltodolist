@@ -2,6 +2,7 @@ import { Header } from "@/components";
 import Sidebar from "@/components/sidebar";
 import "@/styles/globals.css";
 import { Inter, Roboto } from "next/font/google";
+import { usePathname } from "next/navigation";
 const roboto = Roboto({
   subsets: ["latin", "cyrillic-ext"],
   style: "normal",
@@ -16,11 +17,13 @@ const inter = Inter({
 });
 
 export default function App({ Component, pageProps }) {
+  const path = usePathname();
+
   return (
     <main className={`${inter.variable + " " + roboto.variable} h-screen flex`}>
-      <Sidebar />
+      {!(path == "/login" || path == "/sign-up") && <Sidebar />}
       <div className="w-full">
-        <Header />
+      {!(path == "/login" || path == "/sign-up") && <Header />}
         <Component {...pageProps} />
       </div>
     </main>
