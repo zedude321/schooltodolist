@@ -6,3 +6,5 @@ export * from "./members";
 export * from "./create-task";
 export * from "./create-team";
 export * from "./update-team";
+export * from "./project";
+export * from "./calendar";

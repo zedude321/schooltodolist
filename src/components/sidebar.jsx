@@ -23,7 +23,7 @@ const Sidebar = () => {
   return (
     <div
       className={`${
-        extend ? "w-side" : "w-sidemin"
+        extend ? "min-w-side w-side" : "min-w-sidemin w-sidemin"
       } border-r border-white-1/60 h-full transition-all duration-300`}
     >
       <div className="w-full items-center h-22 justify-between flex border-b border-white-1/60">
@@ -38,14 +38,14 @@ const Sidebar = () => {
         </button>
       </div>
       <div className="w-full p-5 pt-3 gap-5 divide-y divide-white-1/60">
-        <div className="px-3 pb-3 gap-1 flex flex-col *:flex *:gap-5 *:items-center *:w-full *:py-2">
+        <div className="px-3 pb-3 gap-1 flex flex-col *:flex *:gap-4 *:items-center *:w-full *:py-2">
           <button onClick={() => router.push("/")}>
             <FiHome
-              className={`text-white-1${pathname != "/" ? "/60" : ""} h-6 w-6`}
+              className={`text-white-1${pathname != "/" ? "/60" : ""} h-5 w-5`}
             />
             {extend && (
               <div
-                className={`font-inter font-medium transition-all text-nowrap h-5 text-white-1${
+                className={`font-inter font-medium transition-all text-16 text-nowrap h-5 text-white-1${
                   pathname != "/" ? "/60" : ""
                 }`}
               >
@@ -59,7 +59,7 @@ const Sidebar = () => {
             <FiCalendar
               className={`text-white-1${
                 pathname != "/schedule" ? "/60" : ""
-              } h-6 w-6`}
+              } h-5 w-5`}
             />
             {extend && (
               <div
@@ -78,20 +78,20 @@ const Sidebar = () => {
               <div className="font-inter font-bold text-14">багууд</div>
             )}
             <button>
-              <FiPlus className="h-6 w-6" />
+              <FiPlus className="h-5 w-5" />
             </button>
           </div>
-          <button className="flex flex-col gap-5 text-white-1">
+          <button disabled className="flex flex-col gap-5 text-white-1">
             <div className={`flex w-full justify-${extend ? 'between' : 'center h-12'} p-2.5 bg-purple rounded-md`}>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-red-l rounded-full" />
                 {extend && (
-                  <div className="text-16 font-semibold font-inter">11A</div>
+                  <div className="text-14 font-semibold font-inter">11A</div>
                 )}
               </div>
               {extend && (
-                <a>
-                  <FiMoreHorizontal className="h-6 w-6" />
+                <a className="cursor-pointer">
+                  <FiMoreHorizontal className="h-5 w-5" />
                 </a>
               )}
             </div>
@@ -101,7 +101,7 @@ const Sidebar = () => {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-yellow-l rounded-full" />
                 {extend && (
-                  <div className="text-16 font-semibold font-inter">11B</div>
+                  <div className="text-14 font-semibold font-inter">11B</div>
                 )}
               </div>
             </div>
@@ -111,7 +111,7 @@ const Sidebar = () => {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-green-l rounded-full" />
                 {extend && (
-                  <div className="text-16 font-semibold font-inter">Physics</div>
+                  <div className="text-14 font-semibold font-inter">Physics</div>
                 )}
               </div>
             </div>

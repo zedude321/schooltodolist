@@ -1,4 +1,4 @@
-import { InputLogin } from "@/components";
+import InputLogin from "@components";
 import { GoDotFill } from "react-icons/go";
 
 const SignUp = () => {
@@ -9,13 +9,8 @@ const SignUp = () => {
         <h1 className="text-2xl text-white font-bold">Бүртгэл Үүсгэх</h1>
         <div className="w-[100%] h-auto flex justify-center gap-4 items-center flex-col">
           <InputLogin label="Имэйл" placeholder="Amjuulay@gmail.com" />
+          <InputLogin label="Нууц Үг" placeholder="Amjuulay123456" />
           <InputLogin
-            type="password"
-            label="Нууц Үг"
-            placeholder="Amjuulay123456"
-          />
-          <InputLogin
-            type="password"
             label="Нууц Үгээ Баталгаажуулах"
             placeholder="Amjuulay123456"
           />
@@ -33,15 +28,14 @@ const SignUp = () => {
             Тоо ашиглах (Жишээ нь: 1234)
           </p>
         </div>
-        <button className="w-[80%]">
-          <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">
+        <div className="w-[80%]">
+          <div className="w-full h-[40px] bg-white text-dark text-md flex justify-center items-center rounded-3xl">
             Бүртгүүлэх
           </div>
-        </button>
-        <div className="w-[80%] flex justify-center items-center">
-          <div className="text-white-1/60 text-xs flex justify-center gap-1">
-            Та бүртгэлтэй бол?{" "}
-            <a href="/login" className="underline cursor-pointer"> Нэвтрэх</a>
+        </div>
+        <div className="w-[80%] flex justify-center items-center ">
+          <div className="text-white/60 text-xs flex justify-center gap-1">
+            Та бүртгэлтэй бол? <div className="underline"> Нэвтрэх</div>
           </div>
         </div>
       </div>

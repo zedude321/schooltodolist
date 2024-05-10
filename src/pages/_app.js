@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const roboto = Roboto({
   subsets: ["latin", "cyrillic-ext"],
   style: "normal",
-  weight: ["400", "700"],
+  weight: ["400", "700", "500"],
   variable: "--font-roboto",
 });
 const inter = Inter({
@@ -20,12 +20,22 @@ export default function App({ Component, pageProps }) {
   const path = usePathname();
 
   return (
-    <main className={`${inter.variable + " " + roboto.variable} h-screen flex`}>
-      {!(path == "/login" || path == "/sign-up") && <Sidebar />}
-      <div className="w-full">
-      {!(path == "/login" || path == "/sign-up") && <Header />}
+    <main
+      className={`${
+        inter.variable + " " + roboto.variable
+      } max-w-screen h-screen flex min-w-screen`}
+    >
+      {!(path == "/login" || path == "/sign-up") ? (
+        <>
+          <Sidebar />
+          <div className="flex flex-col w-full">
+            <Header />
+            <Component {...pageProps} />
+          </div>
+        </>
+      ) : (
         <Component {...pageProps} />
-      </div>
+      )}
     </main>
   );
 }
