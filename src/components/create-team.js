@@ -56,7 +56,7 @@ export function CreateTeam() {
                 </div>
               </div>
               <div className="flex justify-center items-center gap-2">
-                <span className=" text-xs text-white-1">Багиин ахлагч </span>
+                <span className=" text-xs text-white-1">Багийн ахлагч </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -91,7 +91,7 @@ export function CreateTeam() {
                 </div>
               </div>
               <div className="flex justify-center items-center gap-2">
-                <span className=" text-xs text-white-1">Багиин ахлагч </span>
+                <span className=" text-xs text-white-1">Багийн ахлагч </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -126,7 +126,7 @@ export function CreateTeam() {
                 </div>
               </div>
               <div className="flex justify-center items-center gap-2">
-                <span className=" text-xs text-white-1">Багиин ахлагч </span>
+                <span className=" text-xs text-white-1">Багийн ахлагч </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
