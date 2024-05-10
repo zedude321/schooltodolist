@@ -31,13 +31,6 @@ export function CreateTeam() {
                   );
                 })}
               </div>
-              {/* <div className="flex justify-center items-center gap-2">
-                <p className="text-xs text-white-1/60">Өнгөө сонгох</p>
-                <input
-                  className="w-20 h-6 bg-dark-1 outline-0 border rounded p-2 text-sm text-white-1 placeholder:text-white-1/60 placeholder:text-xs"
-                  placeholder="#f5f5f5"
-                ></input>
-              </div> */}
             </div>
           </div>
           <InputLogin
