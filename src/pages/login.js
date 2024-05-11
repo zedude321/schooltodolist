@@ -1,5 +1,6 @@
 import { useAuth } from "@/auth/auth-provider";
 import { InputLogin } from "@/components";
+import { DOMAIN_URL } from "@/utils/url";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -8,17 +9,17 @@ const Login = () => {
   const router = useRouter();
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
-  const { signIn } = useAuth()
+  const { signIn } = useAuth();
 
   const login = async () => {
     const res = await axios
-      .post("http://192.168.1.103:5000/Login/login", {
+      .post(DOMAIN_URL + "/Login/login", {
         mail,
         pass,
       })
       .then((e) => {
-        signIn(e.data.user.name, e.data.user.mail)
-        alert('Амжилттай нэвтэрлээ')
+        signIn(e.data.user.name, e.data.user.mail);
+        alert("Амжилттай нэвтэрлээ");
         router.push("/");
       })
       .catch((e) => console.log(e));

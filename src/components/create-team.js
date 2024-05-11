@@ -4,9 +4,30 @@ import { Members } from "./members";
 import appereance from "../utils/appereance.json";
 import members from "../utils/members.json";
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { DOMAIN_URL } from "@/utils/url";
+
 export function CreateTeam({ setVisible }) {
   const [selected, setSelected] = useState(-1);
+  const [name, setName] = useState("");
   const ref = useRef(null);
+
+  const createTeam = async () => {
+    console.log('wahts')
+    const res = await axios
+      .post(DOMAIN_URL + "/Team/CreateTeam", {
+        name,
+        members: ["663dfe447de25abd2073364d"],
+        color: appereance[selected].color,
+      })
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    console.log(res);
+  };
 
   useEffect(() => {
     const handleOutSideClick = (event) => {
@@ -28,7 +49,12 @@ export function CreateTeam({ setVisible }) {
       >
         <h1 className="text-2xl text-white-1 font-bold">Баг үүсгэх</h1>
         <div className="w-[100%] h-auto flex justify-around gap-8 items-center flex-col">
-          <InputLogin label="Багын нэр" isHide="true" />
+          <InputLogin
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            label="Багын нэр"
+            isHide="true"
+          />
           <div className="w-[80%] h-[56px] flex justify-between items-start flex-col font-roboto">
             <div className="h-[16px] w-full flex justify-between items-center">
               <p className="text-sm text-white-1/60 h-full">Өнгөө сонгох</p>
@@ -67,7 +93,10 @@ export function CreateTeam({ setVisible }) {
         </div>
 
         <button
-          onClick={() => setVisible(false)}
+          onClick={() => {
+            setVisible(false);
+            createTeam();
+          }}
           className="w-[80%] h-[60px] flex justify-center items-center"
         >
           <div className="w-full h-[40px] active:bg-white-1/60 bg-white-1 text-dark text-md flex justify-center items-center rounded-3xl transition-all">

@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const signUp = async () => {
     const res = await axios
-      .post("http://192.168.1.103:5000/Login/register", {
+      .post(DOMAIN_URL + "/Login/register", {
         name,
         mail: email,
         pass: pass,
