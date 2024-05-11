@@ -113,7 +113,7 @@ const Sidebar = () => {
                       style={{ background: e.color }}
                       className="w-3 h-3 rounded-full border border-white-1"
                     />
-                    {extend && (
+                    {extend && (  
                       <div className="text-14 font-semibold font-inter">
                         {e.name}
                       </div>
