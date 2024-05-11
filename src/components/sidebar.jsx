@@ -1,7 +1,7 @@
 import { LogoIcon } from "@/assets/icons";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FiCalendar,
   FiChevronsLeft,
@@ -10,20 +10,36 @@ import {
   FiPlus,
 } from "react-icons/fi";
 import { BiLogoFacebook, BiLogoGmail, BiLogoInstagram } from "react-icons/bi";
-import teamData from "@/utils/team-data";
 import { CreateTeam } from "./create-team";
 import { ChangeTeam } from "./change-team";
+import axios from "axios";
+import { DOMAIN_URL } from "@/utils/url";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
-
+  const [data, setData] = useState();
   const [extend, setExtend] = useState(true);
   const [visible, setVisible] = useState(false);
-  const [edit, setEdit] = useState(false)
+  const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      getData();
+    }, 100);
+  }, [visible]);
 
   const handleExtend = () => {
     setExtend(!extend);
+  };
+  const getData = async () => {
+    await axios
+      .get(DOMAIN_URL + "/Team/")
+      .then((e) => {
+        setData(e.data.data);
+        console.log(data);
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -94,7 +110,7 @@ const Sidebar = () => {
                 <FiPlus className="h-5 w-5" />
               </button>
             </div>
-            {teamData.map((e, i) => (
+            {data?.map((e, i) => (
               <a
                 href={pathname == "/team/" + e.name ? null : "/team/" + e.name}
                 disabled={pathname == "/team/" + e.name}
@@ -113,7 +129,7 @@ const Sidebar = () => {
                       style={{ background: e.color }}
                       className="w-3 h-3 rounded-full border border-white-1"
                     />
-                    {extend && (  
+                    {extend && (
                       <div className="text-14 font-semibold font-inter">
                         {e.name}
                       </div>

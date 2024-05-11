@@ -1,9 +1,11 @@
-import { AuthProvider } from "@/auth/auth-provider";
+import { AuthProvider, useAuth } from "@/auth/auth-provider";
 import { Header } from "@/components";
 import Sidebar from "@/components/sidebar";
 import "@/styles/globals.css";
 import { Inter, Roboto } from "next/font/google";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 const roboto = Roboto({
   subsets: ["latin", "cyrillic-ext"],
   style: "normal",

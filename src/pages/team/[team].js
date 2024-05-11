@@ -14,18 +14,12 @@ import CreateTask from "@/components/create-task";
 
 export default function Team() {
   const router = useRouter();
-  const [data, setData] = useState();
+  const [data, setData] = useState(teamData[0]);
   const [view, setView] = useState("row");
   const [accordion, setAccordion] = useState(-1);
   const [visible, setVisible] = useState(false);
   const [memberVisible, setMemberVisible] = useState(false);
   const [taskVisible, setTaskVisible] = useState(false);
-
-  useEffect(() => {
-    if (teamData && router.query.team) {
-      setData(teamData.find((e) => e.name == router.query.team));
-    }
-  }, [teamData, router]);
 
   return (
     <>
@@ -34,7 +28,7 @@ export default function Team() {
       {taskVisible && <CreateTask setVisible={setTaskVisible} />}
       <div className="p-10 w-full space-y-5 font-inter">
         <div className="flex w-full justify-between items-center">
-          <p className="text-white-1 font-inter font-semibold text-36">11A</p>
+          <p className="text-white-1 font-inter font-semibold text-36">{router.query.team}</p>
           <div className="flex gap-5 items-center">
             <button
               onClick={() => setMemberVisible(true)}
